@@ -4,3 +4,6 @@
 [submodule "devel/xmpp-prebind-php"]
 	path = devel/xmpp-prebind-php
 	url = https://github.com/piotr-cz/xmpp-prebind-php
+[submodule "php/xmpp-prebind-php"]
+	path = php/xmpp-prebind-php
+	url = https://github.com/candy-chat/xmpp-prebind-php.git
