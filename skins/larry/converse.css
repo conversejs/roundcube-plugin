@@ -1,95 +1,15 @@
-#chatpanel {
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px !important;
-}
-
-#chatpanel input, #chatpanel textarea {
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px !important;
-}
-
-#chatpanel .add-xmpp-contact input {
-	width: 92%;
-}
-
-#chatpanel .chat-textarea {
-	width: 180px;
-	resize: none;
-	border-style: none;
-	border-color: transparent;
-	overflow: auto;
-}
-
-#chatpanel a.open-chat {
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px;
-	color: #333;
-	font-weight: normal;
-	vertical-align: top;
-	text-decoration: none;
-	padding-top: 1px;
-	padding-bottom: 6px;
-	padding-left: 5px;
-}
-
-#converse-roster {
-	height: 196px;
-	overflow: hidden;
-}
-
-.oc-chat-content {
-	height: 255px;
-}
-
-#converse-roster div.chat-head {
-	
-}
-
-form.set-xmpp-status {
-	padding: 0 0 .5em .5em !important;
-}
-
-div.chat-title {
-	line-height: normal;
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px !important;
-	font-weight: normal;
-	height: auto;
-	text-decoration: none;
-}
-
-a.user {
-	text-decoration: none;
-}
-
-ul#controlbox-tabs li {
-	width: 33% !important;
-}
-
-ul#controlbox-tabs li a {
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px !important;
-}
-
-.participants ul.participant-list li {
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px !important;
-}
-
-.chat-content {
-	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
-	font-size: 11px !important;
-}
-
 a.configure-chatroom-button,
 a.close-chatbox-button,
 .chatroom-form,
 .chat-body p,
+.chat-content,
 .chatroom-form legend,
 #available-chatrooms dt,
 #converse-roster dt,
 .room-info,
+div.chat-title,
 .chat-head #controlbox-tabs,
+.participants ul.participant-list li,
 ul#controlbox-tabs li a,
 div#users,
 div#chatrooms,
@@ -98,31 +18,6 @@ div#settings
 {
 	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;
 	font-size: 11px !important;
-}
-
-.available-chatroom {
-	margin-left: 0 !important;
-}
-
-.available-chatroom a.room-info {
-	text-decoration: none;
-}
-
-#available-chatrooms {
-	margin: 0;
-}
-
-.participant-list {
-	margin: 0;
-	padding: 0;
-}
-
-.chat {
-	font-size: 12px;
-}
-
-#toggle-controlbox {
-	font-size: 12px;
 }
 
 .chatbox .dropdown dt a span.icon-online,
@@ -143,21 +38,6 @@ div#settings
 .chatbox .dropdown dt a span.icon-offline,
 #converse-roster dd.current-xmpp-contact span.icon-offline {
     color: #ccc;
-}
-
-.xmpp-status-menu li a,
-.chatbox .toggle-smiley ul li a,
-#controlbox div.xmpp-status a.icon-pencil,
-#converse-roster dd a.icon-remove {
-    text-decoration: none;
-}
-
-#converse-roster .roster-filter {
-    width: 93px;
-}
-
-#converse-roster .filter-type {
-    width: 94px;
 }
 
 #conversejs a, #conversejs a:visited {
