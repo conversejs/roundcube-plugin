@@ -159,3 +159,39 @@ div#settings
 #converse-roster .filter-type {
     width: 94px;
 }
+
+#conversejs a, #conversejs a:visited {
+    color: #4C4C4C;
+}
+
+#conversejs #controlbox .controlbox-head,
+#conversejs .chat-head.chat-head-chatbox {
+    background-color: #4C4C4C;
+}
+
+#conversejs .chatbox .chat-body .chat-message span.chat-msg-me {
+    color: #4C4C4C;
+}
+
+#conversejs .chatbox .chat-body .chat-message span.chat-msg-them {
+    color: #F25829;
+}
+
+#conversejs .chatbox form.sendXMPPMessage .chat-toolbar a,
+#conversejs .chatbox form.sendXMPPMessage .chat-toolbar .toggle-smiley,
+#conversejs #controlbox #fancy-xmpp-status-select a.change-xmpp-status-message {
+    color: #4C4C4C;
+}
+
+#conversejs #converse-roster .roster-contacts dd.current-xmpp-contact span.icon-online {
+    color: #adce4a;
+}
+
+#conversejs #converse-roster .roster-contacts dd.current-xmpp-contact span.icon-offline {
+    color: #4C4C4C;
+}
+
+#conversejs .button-primary,
+#conversejs .button-secondary {
+    background-color: #4C4C4C;
+}
