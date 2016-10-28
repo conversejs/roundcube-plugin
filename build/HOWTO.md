@@ -11,6 +11,7 @@ converse.js from git comes with all files pre-built. There is no longer any
    cp devel/converse.js/css/theme.css css/
    cp -r devel/converse.js/css/images css/
    cp -r devel/converse.js/fonticons .
+   sed -i 's,https://cdn.conversejs.org/fonticons/fonts/,../fonticons/fonts/,g' css/*.min.css
    ```
 
 [conversedocs]: http://conversejs.org/docs/html/index.html#development
