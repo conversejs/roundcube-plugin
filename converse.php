@@ -30,7 +30,6 @@ class converse extends rcube_plugin
 	private $debug = false;
 	private $devel_mode = false;
 	private $resource_prefix = "Roundcube-"; // Resource Name = $resource_prefix+uniqid()
-	private $jsfile = 'converse.min.js';
 	private $converseconfig = array();
 	private $already_present = 0;
 
@@ -56,7 +55,6 @@ class converse extends rcube_plugin
 
 		$this->debug = $this->_config_get('converse_xmpp_debug', array(), false);
 		$this->devel_mode = $this->_config_get('converse_xmpp_devel_mode', array(), false);
-		$this->jsfile = $this->_config_get('converse_jsfile', array(), 'converse.min.js');
 		$converseconfig = $this->_config_get('converse_config', array(), array());
 		$this->converseconfig = array_merge($this->converseconfig, $converseconfig);
 		if ($rp = $this->_config_get('converse_xmpp_resource_prefix')) $this->resource_prefix = $rp;
@@ -169,8 +167,8 @@ class converse extends rcube_plugin
 			$this->include_stylesheet('devel/converse.js/converse.css');
 		}
 		else {
-			$this->include_script('js/' . $this->jsfile);
-			$this->include_stylesheet('css/converse.min.css');
+			$this->include_script('https://cdn.conversejs.org/2.0.4/dist/converse.nojquery.min.js');
+			$this->include_stylesheet('https://cdn.conversejs.org/2.0.4/css/converse.min.css');
 		}
 
 		$this->include_script('js/converse-rcmail.js');
