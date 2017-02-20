@@ -167,8 +167,8 @@ class converse extends rcube_plugin
 			$this->include_stylesheet('devel/converse.js/converse.css');
 		}
 		else {
-			$this->include_script('https://cdn.conversejs.org/2.0.4/dist/converse.nojquery.min.js');
-			$this->include_stylesheet('https://cdn.conversejs.org/2.0.4/css/converse.min.css');
+			$this->include_script('https://cdn.conversejs.org/2.0.6/dist/converse.nojquery.min.js');
+			$this->include_stylesheet('https://cdn.conversejs.org/2.0.6/css/converse.min.css');
 		}
 
 		$this->include_script('js/converse-rcmail.js');
