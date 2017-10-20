@@ -23,6 +23,13 @@ function rcmail_converse_init(converse, args)
             rcmail.local_storage_set_item('converse.rid', converse.tokens.get('rid'));
         }
     });
+    
+    // log out of converse when logging out of roundcube
+    rcmail.addEventListener('beforeswitch-task', function(e){
+        if(e == 'logout'){
+                converse.user.logout();
+        }
+    });
 }
 
 
