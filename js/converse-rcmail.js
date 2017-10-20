@@ -27,7 +27,6 @@ function rcmail_converse_init(converse, args)
     // log out of converse when logging out of roundcube
     rcmail.addEventListener('beforeswitch-task', function(e){
         if(e == 'logout'){
-                //console.log('logout');
                 converse.user.logout();
         }
     });
