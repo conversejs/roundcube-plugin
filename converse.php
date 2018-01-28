@@ -269,7 +269,7 @@ class converse extends rcube_plugin
 				$select->add($this->gettext('manual'), 2);
 			}
 			$p['blocks']['converse']['options']['converse_enable'] = array(
-				'title' => html::label($field_id, Q($this->gettext('enableprebind'))),
+				'title' => (RCUBE_VERSION>="1.3")?html::label($field_id, rcube::Q($this->gettext('enableprebind'))):html::label($field_id, Q($this->gettext('enableprebind'))),
 				'content' => $select->show($rcmail->config->get('converse_prebind', $default)),
 			);
 		}

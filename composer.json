@@ -3,9 +3,14 @@
 	"type": "roundcube-plugin",
 	"description": "XMPP plugin for Roundcube based on Converse.js",
 	"keywords": ["xmpp", "chat", "im", "jabber"],
-	"homepage": "https://github.com/priyadi/roundcube-converse.js-xmpp-plugin",
+	"homepage": "https://github.com/devurandom/roundcube-converse.js-xmpp-plugin",
 	"license": "MIT",
 	"authors": [
+		{
+			"name": "Dennis Schridde",
+			"homepage": "https://github.com/devurandom",
+			"role": "Developer"
+		},
 		{
 			"name": "Priyadi Iman Nurcahyo",
 			"email": "priyadi@priyadi.net",
