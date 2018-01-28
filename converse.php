@@ -56,7 +56,7 @@ class converse extends rcube_plugin
 
 		$this->debug = $this->_config_get('converse_xmpp_debug', array(), false);
 		$this->devel_mode = $this->_config_get('converse_xmpp_devel_mode', array(), false);
-		$this->converse_cdn = $this->_config_get('converse_cdn', array(), 'https://cdn.conversejs.org/2.0.6');
+		$this->converse_cdn = $this->_config_get('converse_cdn', array(), 'https://cdn.conversejs.org/3.3.1');
 		$converseconfig = $this->_config_get('converse_config', array(), array());
 		$this->converseconfig = array_merge($this->converseconfig, $converseconfig);
 		if ($rp = $this->_config_get('converse_xmpp_resource_prefix')) $this->resource_prefix = $rp;
@@ -169,7 +169,7 @@ class converse extends rcube_plugin
 			$this->include_stylesheet('devel/converse.js/converse.css');
 		}
 		else {
-			$this->include_script($this->converse_cdn . '/dist/converse.nojquery.min.js');
+			$this->include_script($this->converse_cdn . '/dist/converse.min.js');
 			$this->include_stylesheet($this->converse_cdn . '/css/converse.min.css');
 		}
 
@@ -182,14 +182,11 @@ class converse extends rcube_plugin
 		$this->api->output->add_footer(html::div(array('id' => "conversejs"), ''));
 
 		$this->api->output->add_script('
-	define("jquery", [], function() { return jQuery; });
-	require.config({ baseUrl: "'.$this->urlbase.'devel/converse.js" });
-	require(["converse"], function (converse) {
-		var args = '.$rcmail->output->json_serialize($converse_prop).';
-		args.i18n = locales["'.$locale.'"];
-		rcmail_converse_init(converse, args);
-	});
-	', 'foot');
+			var args = '.$rcmail->output->json_serialize($converse_prop).';
+			args.locales_url = "' . $this->converse_cdn . '/locale/{{{locale}}}/LC_MESSAGES/converse.json";
+			args.i18n = "'.$locale.'";
+			rcmail_converse_init(converse, args);
+		', 'foot');
 		$this->already_present = 1;
 	}
 

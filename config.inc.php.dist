@@ -74,4 +74,4 @@ $rcmail_config['converse_prebind'] = 2;
 // URL prefix of the CDN where Converse.js is being included from.
 // May point to a local path, if you use the same directory structure as
 // on the CDN (dist/ + css/).
-$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/2.0.6';
+$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/3.3.1';
