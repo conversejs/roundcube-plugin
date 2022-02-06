@@ -1,8 +1,9 @@
 Roundcube Converse.js XMPP plugin 
 =================================
 
-This is XMPP plugin for Roundcube Webmail based on converse.js. This is very
-much a work in progress.
+This is XMPP plugin for Roundcube Webmail based on converse.js.
+
+**The plugin is currently unmaintained. If you want to take over, please drop me an issue so that I can transfer the repository.**
 
 Requirements
 ------------
