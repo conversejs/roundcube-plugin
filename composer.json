@@ -31,7 +31,7 @@
 	"extra": {
 		"roundcube": {
 			"min-version": "1.0",
-			"max-version": "1.0.9999"
+			"max-version": "~1.4"
 		}
 	}
 }
