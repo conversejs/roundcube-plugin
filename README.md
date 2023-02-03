@@ -31,7 +31,8 @@ Notes
 -----
 
 This plugin using the same resource (both BOSH prebind and active) in order to fix stability, but there is no support for multiple web pages with one jid's s session. Everytime you make one page active will result in close connection on the other page.
-
+This version uses only login authentication method of conversejs (utilizes jid + password) which is not secure. There is a prebind method that utilizes rid, jid and sid from prebind_url in future plan (code for this implementation is commented now in converse.php).
+Fill free to implement prebind.php for this purpose and make PR ;)
 
 Credits
 -------
