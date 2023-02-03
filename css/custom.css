@@ -1,0 +1,22 @@
+/*fix of double scrolls in roster contacts window*/
+.controlbox-pane {
+  overflow-x: initial!important;
+}
+#converse-roster,  .conversejs #converse-roster .roster-contacts{
+  height:initial!important;
+}
+
+/*fix of modal z-index in early versions of converse (<9.0.0)*/
+.modal-backdrop {
+    z-index: 1030!important;
+}
+
+/*don't open profile settings on a show-profile link*/
+
+a.show-profile, a.show-msg-author-modal {
+    pointer-events: none;
+}
+/*fiox of entering white text in MUC */
+html.dark-mode .custom-file-label:focus:not(.is-invalid), html.dark-mode .form-control:focus:not(.is-invalid) {
+  color:initial!important;
+}
