@@ -1,3 +1,0 @@
-[submodule "php/xmpp-prebind-php"]
-	path = php/xmpp-prebind-php
-	url = https://github.com/candy-chat/xmpp-prebind-php.git
