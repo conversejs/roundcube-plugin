@@ -2,8 +2,8 @@ Roundcube Converse.js XMPP plugin
 =================================
 
 This is XMPP plugin for Roundcube Webmail based on converse.js.
-
-**The plugin is currently unmaintained. If you want to take over, please drop me an issue so that I can transfer the repository.**
+Actually this version of plugin is fully support CDN versions of conversejs from 4 to 10 with some bugs (use $rcmail_config['converse_cdn'] parameter in config.inc.php).
+One is fully tested on 5.0.5, 6.0.1, 7.0.5, 8.0.1, 9.1.1 and 10.x.x
 
 Requirements
 ------------
@@ -14,9 +14,8 @@ Requirements
 Installation
 ------------
 * `cd your_roundcube_dir/plugins`
-* `git clone https://github.com/priyadi/roundcube-converse.js-xmpp-plugin converse`
+* `git clone https://github.com/drlight17/roundcube-converse.js-xmpp-plugin converse`
 * `cd converse`
-* `git checkout v0.8.3.0`
 * `cp config.inc.php.dist config.inc.php`
 * `vi config.inc.php` (make necessary adjustments)
 * `cd your_roundcube_dir/`
@@ -30,32 +29,8 @@ session files to force log out all of your users.
 Notes
 -----
 
-This plugin creates a new XMPP session on each page rendering in order to
-support multiple active window. To avoid confusion it is recommended to have
-the XMPP server broadcast incoming messages to all resources.
+This plugin using the same resource (both BOSH prebind and active) in order to fix stability, but there is no support for multiple web pages with one jid's s session. Everytime you make one page active will result in close connection on the other page.
 
-* Openfire: "route.all-resources: true"
-* Prosody: "ignore_presence_priority = true"
-
-Troubleshooting
----------------
-
-Read [troubleshooting](TROUBLESHOOTING.md) if you are having problem. 
-
-Development
------------
-The plugin has a complete and minified version of the converse.js library with
-all its dependencies included. For development, you can pull converse.js as
-a git submodule and include the scripts and style sheets directly from there.
-
-1. Load the converse.js and xmpp-prebind-php submodule:
-   ```
-   cd cd your_roundcube_dir/plugins/converse
-   git submodule init && git submodule update
-   ```
-
-2. Set `$rcmail_config['converse_xmpp_devel_mode'] = true;` in this plugins
-   config file.
 
 Credits
 -------
