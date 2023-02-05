@@ -64,10 +64,9 @@ class converse extends rcube_plugin
 
 		$rcmail = rcube::get_instance();
 
-		// TODO: exclude some more actions
-		//samoilov
-		if ($this->already_present == 1 || $rcmail->task == 'login' || !empty($_REQUEST['_extwin']))
-			return;
+		// samoilov add exclusion managesieve plugin as there is some conflict with it causing error 500
+                if ($this->already_present == 1 || $rcmail->task == 'login' ||  $rcmail->action == 'plugin.managesieve' || !empty($_REQUEST['_extwin']))
+                        return;
 
 		// map session language with converse.js locale
 		$locale = 'en';
