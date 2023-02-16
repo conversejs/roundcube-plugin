@@ -30,12 +30,16 @@ session files to force log out all of your users.
 Notes
 -----
 
-This plugin using the same resource (both BOSH prebind and active) in order to fix stability, but there is no support for multiple web pages with one jid's s session. Everytime you make one page active will result in close connection on the other page.
-This version uses only login authentication method of conversejs (utilizes jid + password) which is not secure. There is a prebind method that utilizes rid, jid and sid from prebind_url in future plan (code for this implementation is commented now in converse.php).
-Fill free to implement prebind.php for this purpose and make PR ;)
+This plugin was using the same resource (both BOSH prebind and active), but this will changed in near future release.
+Everytime you make one page active will result in close connection on the other page.
+This version uses only login authentication method of conversejs (utilizes jid + password) which is not secure. There is a prebind method that utilizes rid, jid and sid from prebind_url in future plan (code for this implementation is commented now in converse.php). 
+**New version will support BOSH connection method with and without prebind and websocket connection method (during my testings this method is way more stable and faster then BOSH) and many other fixes.**
+
+Stay in touch. Fill free to make PRs ;)
 
 Credits
 -------
 * Some code were stolen from https://gist.github.com/Zash/3681653
 * [Converse.js](http://conversejs.org)
 * [Candy Chat](http://candy-chat.github.io/candy/) for its prebinding library
+* @devurandom for his attempts to actualize this pluging to 3.0 version of conversejs
