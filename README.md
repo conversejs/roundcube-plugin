@@ -2,15 +2,15 @@ Roundcube Converse.js XMPP plugin
 =================================
 
 This is XMPP plugin for Roundcube Webmail based on converse.js.
+
 It fully supports CDN versions of conversejs from 4 to 10 with some bugs.
+
 It is fully tested on 5.0.5, 6.0.1, 7.0.5, 8.0.1, 9.1.1 and 10.x.x
+
 Xmpp-prebind-php module supports php7 and newer
 
 ## What's Changed
 * added support for new CDN versions of conversejs + many fixes by @drlight17 in https://github.com/conversejs/roundcube-plugin/pull/15
-
-## New Contributors
-* @drlight17 made their first contribution in https://github.com/conversejs/roundcube-plugin/pull/15
 
 **Full Changelog**: https://github.com/conversejs/roundcube-plugin/commits/v0.9.0-alpha
 
