@@ -10,7 +10,7 @@ Requirements
 ------------
 * BOSH support in XMPP server or BOSH connection manager
 * (optional) BOSH proxy in web server, to avoid crossdomain issues
-* (recommended) XMPP server set to broadcast incoming messages to all resources. See notes below.
+* (recommended) XMPP server set to broadcast incoming messages to all resources.
 
 Installation
 ------------
@@ -33,6 +33,7 @@ Notes
 This plugin was using the same resource (both BOSH prebind and active), but this will changed in near future release.
 Everytime you make one page active will result in close connection on the other page.
 This version uses only login authentication method of conversejs (utilizes jid + password) which is not secure. There is a prebind method that utilizes rid, jid and sid from prebind_url in future plan (code for this implementation is commented now in converse.php). 
+
 **New version will support BOSH connection method with and without prebind and websocket connection method (during my testings this method is way more stable and faster then BOSH) and many other fixes.**
 
 Stay in touch. Fill free to make PRs ;)
