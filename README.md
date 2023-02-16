@@ -51,4 +51,4 @@ Credits
 * Some code were stolen from https://gist.github.com/Zash/3681653
 * [Converse.js](http://conversejs.org)
 * [Candy Chat](http://candy-chat.github.io/candy/) for its prebinding library
-* @devurandom for his attempts to actualize this pluging to 3.0 version of conversejs
+* @devurandom for his efforts to actualize this pluging to 3.0 version of conversejs
