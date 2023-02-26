@@ -192,12 +192,12 @@ class converse extends rcube_plugin
 				//  check configured auth method from config.inc.php
 				if ($this->_config_get('converse_xmpp_auth_method') == 'login') {
 					$converse_prop['authentication'] = 'login';
-					$converse_prop['credentials_url'] = $protocol.$_SERVER[HTTP_HOST].'/?_action=plugin.converse&_type='.$converse_prop['authentication'];
+					$converse_prop['credentials_url'] = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/?_action=plugin.converse&_type='.$converse_prop['authentication'];
 				} else if ($this->_config_get('converse_xmpp_auth_method') == 'prebind') {
 					// prebind method with rid, sid, jid (secured)
 					$converse_prop['authentication'] = 'prebind';
 					$converse_prop['bosh_service_url'] = $args['bosh_url'];
-					$converse_prop['prebind_url'] = $protocol.$_SERVER[HTTP_HOST].'/?_action=plugin.converse&_type='.$converse_prop['authentication'];
+					$converse_prop['prebind_url'] = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/?_action=plugin.converse&_type='.$converse_prop['authentication'];
 				} else {
 					$rcmail->session->remove('xmpp');
 					return;
@@ -205,7 +205,7 @@ class converse extends rcube_plugin
 			} else if ($this->_config_get('converse_xmpp_conn_method') == 'websocket') {
 				$converse_prop['websocket_url'] = $this->_config_get('converse_xmpp_websocket_url');
 				$converse_prop['authentication'] = 'login';
-				$converse_prop['credentials_url'] = $protocol.$_SERVER[HTTP_HOST].'/?_action=plugin.converse&_type='.$converse_prop['authentication'];
+				$converse_prop['credentials_url'] = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/?_action=plugin.converse&_type='.$converse_prop['authentication'];
 
 			} else {
 				$rcmail->session->remove('xmpp');
