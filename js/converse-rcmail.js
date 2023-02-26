@@ -146,6 +146,12 @@ function rcmail_converse_init(converse, args, always)
 			}
 		}
 
+		/*if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			console.log("Browser theme is dark.");
+		} else {
+			console.log("Browser theme is light.");
+		}*/
+
 		if (typeof args.theme == 'undefined'){
 			// bind to dark/light mode RC button to switch conversejs theme after click. if not set default dark-theme is hardcoded to concord. to change - see 6 and 11 code rows
 			$( ".theme" ).on( "click", function() {
@@ -169,14 +175,13 @@ function rcmail_converse_init(converse, args, always)
 
 			// change conversejs theme based on rc mode at initialization
 			args.dark_theme_saved = args.dark_theme;
-
 			if (document.cookie.indexOf('colorMode=dark')==document.cookie.indexOf('colorMode=light'))
 			{
 				//console.log("RC theme is not set. Force setting it to system default!");
 				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-					document.cookie = "colorMode=light";
+					document.cookie = "colorMode=light;path=/"; // to fix path if RC is not at root path
 				} else {
-					document.cookie = "colorMode=dark";
+					document.cookie = "colorMode=dark;path=/";
 				}
 			}
 
