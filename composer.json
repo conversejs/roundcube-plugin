@@ -1,0 +1,37 @@
+{
+  "name": "converse",
+  "description": "Adds support of conversejs to RC.",
+  "homepage": "https://github.com/conversejs/roundcube-plugin/",
+  "license": "MIT",
+  "type": "roundcube-plugin",
+  "version": "0.9.1-beta",
+  "authors": [
+    {
+      "name": "Yuri Samoilov",
+      "email": "root@drlight.fun",
+      "role": "Developer"
+
+    },
+    {
+      "name": "Dennis Schridde",
+      "email": "https://github.com/devurandom",
+      "role": "Developer"
+
+    },
+    {
+      "name": "Priyadi Iman Nurcahyo",
+      "email": "http://priyadi.net",
+      "role": "Developer"
+
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "roundcube/plugin-installer": ">=0.1.2"
+  },
+  "extra": {
+    "roundcube": {
+      "min-version": "1.4"
+    }
+  }
+}
