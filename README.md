@@ -9,21 +9,18 @@ It is fully tested on 5.0.5, 6.0.1, 7.0.5, 8.0.1, 9.1.1 and 10.x.x
 
 Xmpp-prebind-php module supports php7 and newer
 
-## What's Changed
-* added support for new CDN versions of conversejs + many fixes by @drlight17 in https://github.com/conversejs/roundcube-plugin/pull/15
-
-**Full Changelog**: https://github.com/conversejs/roundcube-plugin/commits/v0.9.0-alpha
 
 Requirements
 ------------
 * BOSH support in XMPP server or BOSH connection manager
 * (optional) BOSH proxy in web server, to avoid crossdomain issues
 * (recommended) XMPP server set to broadcast incoming messages to all resources.
+* (recommended) XMPP server with websockets connection support
 
 Installation
 ------------
 * `cd your_roundcube_dir/plugins`
-* `git clone https://github.com/drlight17/roundcube-converse.js-xmpp-plugin converse`
+* `git clone https://github.com/conversejs/roundcube-plugin converse`
 * `cd converse`
 * `cp config.inc.php.dist config.inc.php`
 * `vi config.inc.php` (make necessary adjustments)
@@ -37,12 +34,7 @@ session files to force log out all of your users.
 
 Notes
 -----
-
-This plugin was using the same resource (both BOSH prebind and active), but this will changed in near future release.
-Everytime you make one page active will result in close connection on the other page.
-This version uses only login authentication method of conversejs (utilizes jid + password) which is not secure. There is a prebind method that utilizes rid, jid and sid from prebind_url in future plan (code for this implementation is commented now in converse.php). 
-
-**New version will support BOSH connection method with and without prebind and websocket connection method (during my testings this method is way more stable and faster then BOSH) and many other fixes.**
+This version supports BOSH connection method with login and prebind auth methods and websocket connection method with login auth method. The last one is recommended as more stable and faster then BOSH.
 
 Stay in touch. Fill free to make PRs ;)
 

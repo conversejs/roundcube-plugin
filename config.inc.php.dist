@@ -4,10 +4,30 @@
 // $args['user'] : IMAP username
 // $args['pass'] : IMAP password
 
+// XMPP auth method for conversejs (possible values are "login" and "prebind")
+// Login method will use credentials_url and prebind - prebind_url. For prebind you MUST
+// specify converse_xmpp_bosh_prebind_url and converse_xmpp_bosh_url parameters below and set converse_xmpp_conn_method to websocket!
+$rcmail_config['converse_xmpp_auth_method'] = 'login';
+
+// XMPP connection method (possible values are "websocket" and "bosh")
+// For BOSH you MUST specify converse_xmpp_bosh_prebind_url and converse_xmpp_bosh_url.
+// For websocket you MUST specify converse_xmpp_websocket_url
+// websocket is highly recommended as more fast, reliable and stable connection method
+$rcmail_config['converse_xmpp_conn_method'] = 'websocket';
+
+// Hostname of websocket endpoint, used by web browsers (called by Javascript code),
+// this can be a relative URL
+$rcmail_config['converse_xmpp_websocket_url']= function($args) {
+	//return '/ws';
+	return 'wss://your-xmpp.domain.com:7443/ws';
+
+};
+
 // Hostname of BOSH endpoint, used for prebinding only (called by PHP),
 // this must be an absolute URL
 $rcmail_config['converse_xmpp_bosh_prebind_url']= function($args) {
-	return 'http://localhost:5280/http-bind';
+	//return 'http://localhost:5280/http-bind';
+	return 'https://your-xmpp.domain.com:7443/http-bind';
 	// return sprintf('http://%s/http-bind', $_SERVER['HTTP_HOST']);
 	// return sprintf('http://%s/http-bind', $args['host']);
 };
@@ -16,13 +36,16 @@ $rcmail_config['converse_xmpp_bosh_prebind_url']= function($args) {
 // this can be a relative URL
 $rcmail_config['converse_xmpp_bosh_url']= function($args) {
 	//return '/http-bind';
-	return 'http://localhost:5280/http-bind';
+	return 'https://your-xmpp.domain.com:7443/http-bind';
+	//return 0;
 };
 
 // Hostname portion of XMPP username aka XMPP domain (bare JID), example: "example.net"
 $rcmail_config['converse_xmpp_hostname']= function($args) {
+	return 'domain.com';
+	//return;
 	// return preg_replace('/^.*@/', '', $args['user']);
-	return $args['host'];
+	// return $args['host'];
 };
 
 // Username portion of XMPP username (bare JID), example: "user"
@@ -38,40 +61,52 @@ $rcmail_config['converse_xmpp_password']= function($args) {
 	return $args['pass'];
 };
 
+// URL prefix of the CDN where Converse.js is being included from.
+// May point to a local path, if you use the same directory structure as
+// on the CDN (dist/ + css/).
+//$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/5.0.5'; // last version with previous avatar design and more stable user connection status
+$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/10.1.2';
+//$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/9.1.1';
+
 // Additional converse.js option to use
 // refer to https://conversejs.org/docs/html/index.html#configuration-variables
-// some options are overriden: expose_rid_and_sid, bosh_service_url, debug,
-// prebind, jid, sid, rid
+// some options are overriden by plugin so there is no need to fill them:
+// bosh_service_url, debug, prebind, password, login, jid, sid, rid, auto_login, auto_reconnect
+// !!! allow_logout will be overridden only if prebind auth method is configured !!!
 $rcmail_config['converse_config'] = array(
 	'blacklisted_plugins' => array(
+            //'converse-controlbox'
+        ),
+	'whitelisted_plugins' => array(
+            //'converse-notification'
         ),
 	'show_message_avatar' => true,
 	'show_send_button' => true,
-	//'view_mode' => 'overlayed',
 	'allow_dragresize' => true,
 	'allow_contact_removal' => false,
 	'allow_registration' => false,
+	'allow_logout' => true,
 	'allow_user_trust_override' => false,
-	'auto_login' => true,
-	'auto_reconnect' => true,
-	'allow_logout' => false,
 	'allow_contact_requests' => false,
 	'show_client_info' => false,
 	'visible_toolbar_buttons' => array(
-		'spoiler' => true,
+		'spoiler' => false,
 		'call' => false,
     	'emoji' => true,
     	'toggle_occupants' => true
 	),
-	'theme' => 'default',
-	'dark_theme' => 'concord',
+	//'theme' => 'default', // may be set to forced override RC theme. available: default (browser/system), concord, dracula
+	'dark_theme' => 'concord', // available dracula and concord (default hardcoded in plugin as I don't like dracula =)) - will be useful if theme is not configured or default (browser/system) is set
 	'auto_away' => 300,
 	'allow_adhoc_commands' => false,
 	'omemo_default' => true,
+	'discover_connection_methods' => false,
+	'play_sounds' => true,
+	'sounds_path' => $rcmail_config['converse_cdn'].'/sounds/',
 	'singleton' => false //for helpdesk like chat
 );
 
-// Always embed chat even if prebinding is not configured or failed
+// Always embed chat even if auth is failed. Setting it to true and manually filling login and password is not very secure as plugin saves your jid and password in browser local storage until the end of RC or conversejs session
 $rcmail_config['converse_xmpp_enable_always'] = false;
 
 // Enable debug mode
@@ -80,12 +115,3 @@ $rcmail_config['converse_xmpp_debug'] = false;
 // Enable development mode
 $rcmail_config['converse_xmpp_devel_mode'] = false;
 
-// Configure XMPP resource prefix. XMPP resource is set to this variable
-// appended with a unique id. Defaults to 'roundcube-'.
-$rcmail_config['converse_xmpp_resource_prefix'] = 'roundcube-';
-
-// URL prefix of the CDN where Converse.js is being included from.
-// May point to a local path, if you use the same directory structure as
-// on the CDN (dist/ + css/).
-//$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/5.0.5';
-$rcmail_config['converse_cdn'] = 'https://cdn.conversejs.org/10.0.0';
