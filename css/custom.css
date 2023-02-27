@@ -11,11 +11,10 @@
     z-index: 1030!important;
 }
 
-/*don't open profile settings on a show-profile link*/
-
+/*don't open profile settings on a show-profile link
 a.show-profile, a.show-msg-author-modal {
     pointer-events: none;
-}
+}*/
 /*fiox of entering white text in MUC */
 html.dark-mode .custom-file-label:focus:not(.is-invalid), html.dark-mode .form-control:focus:not(.is-invalid) {
   color:initial!important;
