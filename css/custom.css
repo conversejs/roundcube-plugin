@@ -19,3 +19,11 @@ a.show-profile, a.show-msg-author-modal {
 html.dark-mode .custom-file-label:focus:not(.is-invalid), html.dark-mode .form-control:focus:not(.is-invalid) {
   color:initial!important;
 }
+/*fix of z-index blocking logout button in @media (max-width: 767.98px)*/
+#conversejs {
+  width:0;
+}
+/*fix of RC messages are blocked by conversejs UI*/
+#messagestack {
+  z-index:1500;
+}
